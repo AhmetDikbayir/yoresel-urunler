@@ -4,8 +4,6 @@ import { useState } from 'react';
 
 import Image from 'next/image';
 
-import { urlFor } from '../lib/sanity';
-
 interface iAppProps {
   images: string[];
 }
@@ -22,15 +20,14 @@ const ImageGallery = ({ images }: iAppProps) => {
       <div className='order-last flex gap-4 lg:order-none lg:flex-col'>
         {images.map((image: string, idx: number) => {
           // Eğer image yolu /assets/ ile başlıyorsa doğrudan kullan, değilse urlFor ile
-          const src = image.startsWith('/assets/') ? image : urlFor(image).url();
           return (
             <div key={idx} className='overflow-hidden rounded-lg bg-gray-100'>
               <Image
-                src={src}
+                src={image}
                 width={200}
                 height={200}
                 alt='photo'
-                className='h-full w-full cursor-pointer object-cover object-center'
+                className='size-full cursor-pointer object-cover object-center'
                 onClick={() => handleSmallImageClick(image)}
               />
             </div>
@@ -40,11 +37,11 @@ const ImageGallery = ({ images }: iAppProps) => {
 
       <div className='relative overflow-hidden rounded-lg bg-gray-100 lg:col-span-4'>
         <Image
-          src={bigImage.startsWith('/assets/') ? bigImage : urlFor(bigImage).url()}
+          src={bigImage}
           alt='Photo'
           width={500}
           height={500}
-          className='h-full w-full object-cover object-center'
+          className='size-full object-cover object-center'
         />
 
         <span className='absolute left-0 top-0 rounded-br-lg bg-red-500 px-3 py-1.5 text-sm uppercase tracking-wider text-white'>

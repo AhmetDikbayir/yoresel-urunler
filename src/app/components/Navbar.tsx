@@ -55,7 +55,7 @@ const Navbar = () => {
           <Button
             variant={'outline'}
             onClick={() => handleCartClick()}
-            className='flex h-12 w-12 flex-col gap-y-1.5 rounded-none sm:h-20 sm:w-20 md:h-24 md:w-24'
+            className='flex size-12 flex-col gap-y-1.5 rounded-none sm:size-20 md:size-24'
           >
             <ShoppingBag />
             <span className='hidden text-xs font-semibold text-gray-500 sm:block'>
@@ -64,7 +64,7 @@ const Navbar = () => {
           </Button>
           <Button
             variant={'outline'}
-            className='flex h-12 w-12 flex-col items-center justify-center gap-y-1.5 rounded-none sm:h-20 sm:w-20 md:h-24 md:w-24'
+            className='flex size-12 flex-col items-center justify-center gap-y-1.5 rounded-none sm:size-20 md:size-24'
           >
             <User2 />
             <span className='hidden text-xs font-semibold text-gray-500 sm:block'>

@@ -1,4 +1,4 @@
-import ProductGrid, { ProductType } from '../components/ProductGrid';
+import ProductGrid from '../components/ProductGrid';
 import myProducts from '../components/productsData';
 
 export const dynamic = 'force-dynamic';
@@ -6,7 +6,8 @@ export const dynamic = 'force-dynamic';
 const CategoryPage = ({ params }: { params: { category: string } }) => {
   // Sadece ilgili kategoriye ait ürünleri filtrele
   const filteredProducts = myProducts.filter(
-    (product) => product.categoryName.toLowerCase() === params.category.toLowerCase()
+    product =>
+      product.categoryName.toLowerCase() === params.category.toLowerCase(),
   );
 
   return <ProductGrid products={filteredProducts} category={params.category} />;

@@ -2,27 +2,11 @@ import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Product } from '@/models/product';
-
-import { client } from '../lib/sanity';
-
-const getData = async () => {
-  const query = `*[_type == "product"][0...4] | order(_createdAt desc) {
-    _id,
-      price,
-    name,
-      "slug": slug.current,
-      "categoryName": category->name,
-      "imageUrl": images[0].asset->url
-  }`;
-
-  const data = await client.fetch(query);
-
-  return data;
-};
+import { ProductType } from './ProductGrid';
+import myProducts from './productsData';
 
 const Newest = async () => {
-  const data: Product[] = await getData();
+  const data: ProductType[] = myProducts;
 
   return (
     <div className='bg-white'>
@@ -46,7 +30,7 @@ const Newest = async () => {
                 <Image
                   src={product.imageUrl}
                   alt='Product image'
-                  className='h-full w-full object-cover object-center lg:h-full lg:w-full'
+                  className='size-full object-cover object-center lg:size-full'
                   width={300}
                   height={300}
                 />

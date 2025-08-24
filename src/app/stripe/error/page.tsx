@@ -7,7 +7,7 @@ const ErrorStripe = () => {
   return (
     <div className='h-screen'>
       <div className='mx-auto mt-32 md:max-w-[50vw]'>
-        <XCircle className='mx-auto my-6 h-16 w-16 text-red-600' />
+        <XCircle className='mx-auto my-6 size-16 text-red-600' />
         <div className='text-center'>
           <h2 className='text-center text-base font-semibold text-gray-900 md:text-2xl'>
             Something went wrong!

@@ -54,7 +54,7 @@ const ShoppingCartModal = () => {
                 <>
                   {Object.values(cartDetails ?? {}).map(entry => (
                     <li key={entry.id} className='flex py-6'>
-                      <div className='h-24 w-24 shrink-0 overflow-hidden rounded-md border border-gray-200'>
+                      <div className='size-24 shrink-0 overflow-hidden rounded-md border border-gray-200'>
                         <Image
                           src={entry.image as string}
                           alt='Product image'

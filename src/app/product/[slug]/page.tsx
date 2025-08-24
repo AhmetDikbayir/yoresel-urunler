@@ -1,20 +1,25 @@
-
 import AddToBag from '@/app/components/AddToBag';
 //import CheckoutNow from '@/app/components/CheckoutNow';
 import ImageGallery from '@/app/components/ImageGallery';
 import { Button } from '@/components/ui/button';
-import myProducts from '../../components/productsData';
 
+import myProducts from '../../components/productsData';
 
 export const dynamic = 'force-dynamic';
 
 const ProductPage = ({ params }: { params: { slug: string } }) => {
   // Slug'a göre ürünü bul
-  const data = myProducts.find((product) => product.slug === params.slug);
-  if (!data) return <div className='p-8 text-center text-red-500'>Ürün bulunamadı.</div>;
+  const data = myProducts.find(product => product.slug === params.slug);
+  if (!data)
+    return <div className='p-8 text-center text-red-500'>Ürün bulunamadı.</div>;
 
   // Güvenli fallback'ler
-  const images = data.images && data.images.length > 0 ? data.images : (data.imageUrl ? [data.imageUrl] : []);
+  const images =
+    data.images && data.images.length > 0
+      ? data.images
+      : data.imageUrl
+        ? [data.imageUrl]
+        : [];
   const description = data.description ?? '';
   const price_id = data.price_id ?? '';
 
